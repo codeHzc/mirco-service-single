@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzc.module.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.hzc.module.entity.User">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pass_word" jdbcType="VARCHAR" property="passWord" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="price_id" jdbcType="VARCHAR" property="priceId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    user_id, name, pass_word, real_name, price_id
+  </sql>
+
+
+  <insert id="insertSelective" parameterType="com.hzc.module.entity.User">
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="passWord != null">
+        pass_word,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="priceId != null">
+        price_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="passWord != null">
+        #{passWord,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceId != null">
+        #{priceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.hzc.module.entity.User">
+    update tb_user
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="passWord != null">
+        pass_word = #{passWord,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceId != null">
+        price_id = #{priceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+</mapper>
