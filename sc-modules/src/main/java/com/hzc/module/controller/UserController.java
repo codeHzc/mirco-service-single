@@ -38,6 +38,7 @@ public class UserController {
     @PostMapping("/saveUser")
     public ResponseVo saveUser(@RequestBody User user){
         System.out.println("haha");
+        System.out.println("xixi");
         return mUserService.saveUser(user);
     }
 
