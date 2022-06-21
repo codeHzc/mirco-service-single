@@ -33,7 +33,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>8.0.28</version>
         </dependency>
 <!--这个父工程里面的spring-boot-starter-web spring-boot-starter-test不加，加了子级工程报错-->
 <!--        <dependency>-->
